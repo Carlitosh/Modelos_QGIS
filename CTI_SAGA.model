@@ -1,0 +1,127 @@
+{
+    "values": {
+        "inputs": {
+            "altimetria": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 104.93955625000002, 
+                            "x": 285.40346875
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "altimetria", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Altimetria"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {}, 
+        "group": "Indices topograficos", 
+        "name": "CTI_saga", 
+        "algs": {
+            "SAGATOPOGRAPHICWETNESSINDEXTWI_1": {
+                "values": {
+                    "name": "SAGATOPOGRAPHICWETNESSINDEXTWI_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "TWI": {
+                            "values": {
+                                "description": "CTI_saga", 
+                                "pos": {
+                                    "values": {
+                                        "y": 477.0854375000001, 
+                                        "x": 296.25095625
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "pos": {
+                        "values": {
+                            "y": 355.50854374999994, 
+                            "x": 287.08543749999995
+                        }, 
+                        "class": "point"
+                    }, 
+                    "outputsFolded": true, 
+                    "dependencies": [], 
+                    "params": {
+                        "SLOPE": {
+                            "values": {
+                                "alg": "SAGACATCHMENTAREAFLOWTRACING_1", 
+                                "output": "CSLOPE"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "TRANS": null, 
+                        "METHOD": 0, 
+                        "CONV": 1, 
+                        "AREA": {
+                            "values": {
+                                "alg": "SAGACATCHMENTAREAFLOWTRACING_1", 
+                                "output": "CAREA"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "saga:topographicwetnessindextwi", 
+                    "description": "Topographic wetness index (twi)"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SAGACATCHMENTAREAFLOWTRACING_1": {
+                "values": {
+                    "name": "SAGACATCHMENTAREAFLOWTRACING_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "pos": {
+                        "values": {
+                            "y": 239.00790625000002, 
+                            "x": 276.80030625000006
+                        }, 
+                        "class": "point"
+                    }, 
+                    "outputsFolded": true, 
+                    "dependencies": [], 
+                    "params": {
+                        "MATERIAL": null, 
+                        "ELEVATION": {
+                            "values": {
+                                "name": "altimetria"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "TARGET": null, 
+                        "WEIGHT": null, 
+                        "MINDQV": 0.0, 
+                        "STEP": 1.0, 
+                        "SINKROUTE": null, 
+                        "Method": 0, 
+                        "CORRECT         ": true
+                    }, 
+                    "active": true, 
+                    "consoleName": "saga:catchmentareaflowtracing", 
+                    "description": "Catchment area (flow tracing)"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}
